@@ -76,4 +76,3 @@ class Xor_class:
             exit()    
 if __name__=='__main__':
    Xor_class()      
-   .33
