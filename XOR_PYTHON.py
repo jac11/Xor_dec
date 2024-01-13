@@ -18,8 +18,8 @@ class Xor_class:
     def Gen_Key(self):  
 
         if self.args.message:
-            with open (self.args.message,'r') as payload:
-                if self.args.Mes_base64:
+            with open (self.args.Payload,'r') as payload:
+                if self.args.P_base64:
                     payload = payload.read()
                     payload = base64.b64encode(payload.encode())
                 else:
@@ -45,10 +45,10 @@ class Xor_class:
     def argparse_command(self):
 
         parser = argparse.ArgumentParser(description="Usage: [OPtion] [arguments] [ -w ] [arguments]")       
-        parser.add_argument("-M","--message" , metavar='' , action=None ,help ="wordlist of passwords") 
-        parser.add_argument("-B","--Key_base64" , action='store_true' ,default=False,help ="set color display off")  
-        parser.add_argument("-b","--Mes_base64" , action='store_true' ,default=False,help ="set color display off")      
-        parser.add_argument("-O","--output" , metavar='' , action=None ,required=True,help ="read the hash from file input") 
+        parser.add_argument("-P","--Payload" , metavar='' , action=None ,help ="Specify the Payload to be encrypted") 
+        parser.add_argument("-B","--Key_base64" , action='store_true' ,default=False,help ="Use base64 encoding key value for encryption")  
+        parser.add_argument("-b","--P_base64" , action='store_true' ,default=False,help ="Use base64 encoding for the Payload Before decryption")      
+        parser.add_argument("-O","--output" , metavar='' , action=None ,required=True,help ="Specify the output file for the encrypted Payload") 
         
         self.args = parser.parse_args()        
         if len(sys.argv)!=1 :
