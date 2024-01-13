@@ -17,7 +17,7 @@ class Xor_class:
 
     def Gen_Key(self):  
 
-        if self.args.message:
+        if self.args.Payload:
             with open (self.args.Payload,'r') as payload:
                 if self.args.P_base64:
                     payload = payload.read()
